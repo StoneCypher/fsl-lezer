@@ -1,9 +1,12 @@
 {
   "name": "fsl-lezer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "FSL grammar in Lezer, to make FSL and JSSM available to CodeMirror",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf -f build && mkdir build && cd build && mkdir lezer && cd .. && rimraf -f dist && mkdir dist && cd dist && mkdir lezer && cd ..",
+    "lezer": "lezer-generator ./src/lezer/fsl.grammar --output ./build/lezer/fsl.lezer",
+    "build": "npm run clean && npm run lezer",
     "test": "jest"
   },
   "repository": {
@@ -28,5 +31,9 @@
   "bugs": {
     "url": "https://github.com/StoneCypher/fsl-lezer/issues"
   },
-  "homepage": "https://github.com/StoneCypher/fsl-lezer#readme"
+  "homepage": "https://github.com/StoneCypher/fsl-lezer#readme",
+  "devDependencies": {
+    "@lezer/generator": "^1.1.0",
+    "rimraf": "^3.0.2"
+  }
 }

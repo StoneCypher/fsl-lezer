@@ -1,0 +1,32 @@
+{
+  "name": "fsl-lezer",
+  "version": "0.1.0",
+  "description": "FSL grammar in Lezer, to make FSL and JSSM available to CodeMirror",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StoneCypher/fsl-lezer.git"
+  },
+  "keywords": [
+    "fsl",
+    "jssm",
+    "lezer",
+    "fsl-edit",
+    "jssm-edit",
+    "codemirror",
+    "codemirror6",
+    "cm6",
+    "language",
+    "plugin",
+    "stonecypher"
+  ],
+  "author": "John Haugeland <stonecypher@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StoneCypher/fsl-lezer/issues"
+  },
+  "homepage": "https://github.com/StoneCypher/fsl-lezer#readme"
+}

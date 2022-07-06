@@ -1,6 +1,6 @@
 {
   "name": "fsl-lezer",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "FSL grammar in Lezer, to make FSL and JSSM available to CodeMirror",
   "main": "index.js",
   "scripts": {

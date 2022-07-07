@@ -1,13 +1,18 @@
 {
   "name": "fsl-lezer",
-  "version": "0.4.0",
+  "version": "0.6.0",
   "description": "FSL grammar in Lezer, to make FSL and JSSM available to CodeMirror",
-  "main": "index.js",
+  "main": "./dist/fsl.cjs.js",
+  "module": "./dist/fsl.esm.js",
+  "browser": "./dist/fsl.iife.js",
   "scripts": {
-    "clean": "rimraf -f dist && mkdir dist && cd dist && mkdir lezer && cd ../src/ts && rimraf -f generated_code && mkdir generated_code && cd ../..",
+    "clean": "rimraf -f docs && mkdir docs && rimraf -f dist && mkdir dist && cd src/ts && rimraf -f generated_code && mkdir generated_code && cd ../..",
     "lezer": "lezer-generator ./src/lezer/fsl.grammar --output ./src/ts/generated_code/fsl.lezer",
     "typescript": "tsc --build tsconfig.json",
-    "build": "npm run clean && npm run lezer && npm run typescript",
+    "rollup": "rollup -c",
+    "site": "cp -r ./src/html/* ./docs && cp ./src/html/.nojekyll ./docs && cp ./build/typescript/",
+    "dist": "cp ./build/typescript/fsl.d.ts ./dist",
+    "build": "npm run clean && npm run lezer && npm run typescript && npm run rollup && npm run site && npm run dist",
     "test": "jest"
   },
   "repository": {
@@ -34,11 +39,15 @@
   },
   "homepage": "https://github.com/StoneCypher/fsl-lezer#readme",
   "devDependencies": {
+    "@codemirror/autocomplete": "^6.0.3",
     "@codemirror/language": "^6.2.0",
     "@lezer/generator": "^1.1.0",
     "@lezer/highlight": "^1.0.0",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "codemirror": "^6.0.1",
     "rimraf": "^3.0.2",
+    "rollup": "^2.75.7",
     "typescript": "^4.7.4"
   }
 }
